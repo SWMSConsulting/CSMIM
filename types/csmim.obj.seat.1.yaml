@@ -207,7 +207,10 @@ resources:
           - name: head_rest
             key: 6
             description: Head rest of the seat
-          - name: sidearm
+          - name: sidearm_left
+            key: 6
+            description: Side arm of the seat
+          - name: sidearm_right
             key: 7
             description: Side arm of the seat
           - name: seat_track
@@ -252,18 +255,6 @@ resources:
           - name: rotate_counterclockwise
             key: 17
             description: Rotate counterclockwise
-          - name: lefthand_up
-            key: 18
-            description: Move left-hand side up, e.g. arm rest
-          - name: lefthand_down
-            key: 19
-            description: Move left-hand side down, e.g. arm rest
-          - name: righthand_up
-            key: 20
-            description: Move right-hand side up, e.g. arm rest
-          - name: righthand_down
-            key: 21
-            description: Move right-hand side down, e.g. arm rest
       - key: source
         type: string
         description: Identifies the source, e.g. local IFE in the seat or crew
