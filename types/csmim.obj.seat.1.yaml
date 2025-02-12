@@ -121,10 +121,11 @@ resources:
             key: 2
             description: Command is only sent one time. Seat moves to desired
               position (one touch feature).
-      - key: direction
+      - key: position
         type: enum
-        description: Direction of the motion. Note that not all directions are
-          possible with each part. In case the motion is not supported, a NAK
+        description:
+          Targeted position of the motion. Note that not all positions are
+          possible with each seat. In case the motion is not supported, a NAK
           response will be sent.
         enum-values:
           - name: stop
