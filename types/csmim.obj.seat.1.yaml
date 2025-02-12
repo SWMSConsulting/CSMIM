@@ -193,19 +193,19 @@ resources:
           to be moved
         enum-values:
           - name: leg_rest
-            key: 2
+            key: 1
             description: Leg rest of the seat
           - name: seat_pan
-            key: 3
+            key: 2
             description: Seat pan of the seat
           - name: back_rest
-            key: 4
+            key: 3
             description: Back rest of the seat
           - name: upper_back_rest
-            key: 5
+            key: 4
             description: Upper back rest of the seat
           - name: head_rest
-            key: 6
+            key: 5
             description: Head rest of the seat
           - name: sidearm_left
             key: 6
