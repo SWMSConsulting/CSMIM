@@ -100,7 +100,7 @@ resources:
         key: 3
         description: Obstruction event on divider has occurred
 
-  - id: motion_cmd
+  - id: motion_cmd_seat
     mode: x
     type: void
     optional: true
@@ -121,41 +121,6 @@ resources:
             key: 2
             description: Command is only sent one time. Seat moves to desired
               position (one touch feature).
-      - key: part
-        type: enum
-        description: Defines which part of the seat, whole seat or furniture has
-          to be moved
-        enum-values:
-          - name: seat
-            key: 1
-            description: Motion is for the complete seat
-          - name: leg_rest
-            key: 2
-            description: Leg rest of the seat
-          - name: seat_pan
-            key: 3
-            description: Seat pan of the seat
-          - name: back_rest
-            key: 4
-            description: Back rest of the seat
-          - name: upper_back_rest
-            key: 5
-            description: Upper back rest of the seat
-          - name: head_rest
-            key: 6
-            description: Head rest of the seat
-          - name: sidearm
-            key: 7
-            description: Side arm of the seat
-          - name: seat_track
-            key: 8
-            description: Seat tracking of the seat
-          - name: ottoman
-            key: 9
-            description: Ottoman of the seat
-          - name: privacy_divider
-            key: 10
-            description: Privacy divider of the seat
       - key: direction
         type: enum
         description: Direction of the motion. Note that not all directions are
@@ -194,6 +159,74 @@ resources:
           - name: cleaning
             key: 9
             description: Cleaning position
+      - key: source
+        type: string
+        description: Identifies the source, e.g. local IFE in the seat or crew
+          panel. The seat actuation system uses this parameter to prioritize
+          commands from different sources.
+
+  - id: motion_cmd_part
+    mode: x
+    type: void
+    optional: true
+    description: >
+      Motion command to change seat position. Only one command at the same time
+      is allowed. In case, that a dedicated motion command is not supported, a
+      NAK message shall be sent. The enumeration may be extended in the future.
+    parameters:
+      - key: mode
+        type: enum
+        description: Defines how the seat actuation system reacts on the command
+        enum-values:
+          - name: cyclic
+            key: 1
+            description: Commands needs to be sent cyclically. Otherwise, the#
+              motion will stop.
+          - name: once
+            key: 2
+            description: Command is only sent one time. Seat moves to desired
+              position (one touch feature).
+      - key: part
+        type: enum
+        description: Defines which part of the seat, whole seat or furniture has
+          to be moved
+        enum-values:
+          - name: leg_rest
+            key: 2
+            description: Leg rest of the seat
+          - name: seat_pan
+            key: 3
+            description: Seat pan of the seat
+          - name: back_rest
+            key: 4
+            description: Back rest of the seat
+          - name: upper_back_rest
+            key: 5
+            description: Upper back rest of the seat
+          - name: head_rest
+            key: 6
+            description: Head rest of the seat
+          - name: sidearm
+            key: 7
+            description: Side arm of the seat
+          - name: seat_track
+            key: 8
+            description: Seat tracking of the seat
+          - name: ottoman
+            key: 9
+            description: Ottoman of the seat
+          - name: privacy_divider
+            key: 10
+            description: Privacy divider of the seat
+      - key: direction
+        type: enum
+        description: Direction of the motion. Note that not all directions are
+          possible with each part. In case the motion is not supported, a NAK
+          response will be sent.
+        enum-values:
+          - name: stop
+            key: 0
+            description: Stops all motion
           - name: up
             key: 10
             description: Motion upwards
